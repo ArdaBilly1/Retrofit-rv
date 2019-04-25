@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         reloadData();
         mBookAdapter = new BookAdapter(getApplicationContext(),mBookList);
         mLayoutManager = new LinearLayoutManager(this);
-        rvBook = (RecyclerView) findViewById(R.id.rvBook);
+        rvBook = findViewById(R.id.rvBook);
         rvBook.setLayoutManager(mLayoutManager);
         rvBook.setAdapter(mBookAdapter);
-        btnReload = (Button) findViewById(R.id.btnReload);
+        btnReload = findViewById(R.id.btnReload);
         btnReload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void reloadData() {
         Call<List<Book>> call = gotService.getBooks();
         call.enqueue(new Callback<List<Book>>() {

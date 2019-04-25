@@ -20,28 +20,30 @@ public class BookAdapter extends
         this.ctx = ctx;
         this.bookList = bookList;
     }
+
     @Override
-    public BookViewHolder onCreateViewHolder(ViewGroup parent, int
-            viewType) {
+    public BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_book,parent,false);
         BookViewHolder vh = new BookViewHolder(v);
         return vh;
     }
+
     @Override
     public void onBindViewHolder(BookViewHolder holder, int position) {
         Book itemBuku = bookList.get(position);
         holder.txtName.setText(itemBuku.getName());
     }
+
     @Override
     public int getItemCount() {
         return bookList.size();
     }
-
     public class BookViewHolder extends RecyclerView.ViewHolder {
         public TextView txtName;
         public BookViewHolder(View itemView) {
             super(itemView);
-            txtName = itemView.findViewById(R.id.textView);
+            txtName = itemView.findViewById(R.id.txtView);
         }
     }
 }

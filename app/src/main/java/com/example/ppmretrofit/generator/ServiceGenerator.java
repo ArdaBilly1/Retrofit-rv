@@ -15,15 +15,9 @@ public class ServiceGenerator {
     private static HttpLoggingInterceptor logging =
             new HttpLoggingInterceptor()
                     .setLevel(HttpLoggingInterceptor.Level.BODY);
-
     private static OkHttpClient.Builder httpClient =
             new OkHttpClient.Builder();
-    public static void changeApiBaseUrl(String newApiBaseUrl) {
-        BASE_URL = newApiBaseUrl;
-        builder = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL);
-    }
+
     public static <S> S createService(
             Class<S> serviceClass) {
         if (!httpClient.interceptors().contains(logging)) {
